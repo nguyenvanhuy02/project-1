@@ -38,6 +38,8 @@ public class UserController {
     @Autowired
     private IAccountRoleService accountRoleService;
 
+
+    //Validation check email không trùng lặp
     @PostMapping("/checkUniqueEmail")
     public ResponseEntity<?> checkUnique(@RequestBody EmailDto emailDto) {
         if (userService.existsByEmail(emailDto.getEmail())) {
@@ -46,6 +48,7 @@ public class UserController {
         return new ResponseEntity<>(false,HttpStatus.OK);
     }
 
+    //Validation check username không trùng lặp
     @PostMapping("/checkUniqueUserName")
     public ResponseEntity<?> checkUniqueUserName(@RequestBody UserName userName) {
         if (accountService.existsByUserName(userName.getUserName())) {

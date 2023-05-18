@@ -19,8 +19,8 @@ import java.util.List;
 public interface IAnimeRepository extends JpaRepository<Anime, Integer> {
 
     @Query(value = "SELECT a.id , a.name , a.price , i.url" +
-            " FROM shop_anime.anime as a \n" +
-            " join  shop_anime.image as i on a.id = i.id_anime\n" +
+            " FROM anime as a \n" +
+            " join  image as i on a.id = i.id_anime\n" +
             "WHERE a.delete_status = 0 \n" +
             "group by a.id \n" +
             " ORDER BY a.id desc LIMIT 8;",nativeQuery = true)

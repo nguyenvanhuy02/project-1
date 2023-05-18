@@ -1,6 +1,8 @@
 package com.example.anime.dto.user;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 
 public class UserDto {
 
@@ -13,6 +15,7 @@ public class UserDto {
     private String address;
     private String userName;
     private String password;
+
 
     public Integer getId() {
         return id;

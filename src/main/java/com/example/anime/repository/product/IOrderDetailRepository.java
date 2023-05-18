@@ -18,7 +18,7 @@ import java.util.List;
 @Transactional
 public interface IOrderDetailRepository extends JpaRepository<OrderDetail, Integer> {
 
-    @Query(value = "select shop_anime.order_detail.* from order_detail\n" +
+    @Query(value = "select order_detail.* from order_detail\n" +
             "join `order_anime` on order_anime.id = order_detail.order_id\n" +
             "join `user` on `user`.id = order_anime.user_id\n" +
             "join `payment` on payment.id = order_anime.payment_id \n" +

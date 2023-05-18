@@ -12,6 +12,6 @@ public interface IOrderRepository extends JpaRepository<OrderAnime,Integer> {
     @Query(value = "select `order_anime`.* from order_anime\n" +
             "  join `payment` on order_anime.payment_id = payment.id \n" +
             " join `user` on user.id = order_anime.user_id \n" +
-            " where order_anime.user_id = :idUser and payment.payment_status = 0 ",nativeQuery = true)
+            " where order_anime.user_id = :idUser and payment.payment_status = 0 limit 1",nativeQuery = true)
     OrderAnime getOrder(@Param("idUser") Integer user);
 }
