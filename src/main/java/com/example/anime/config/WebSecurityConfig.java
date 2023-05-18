@@ -19,10 +19,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
+@SuppressWarnings("deprecation")
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private JwtEntryPoint jwtEntryPoint;
+//    @Autowired
+//    private JwtEntryPoint jwtEntryPoint;
 
     @Autowired
     private MyUserDetailServiceImpl myUserDetailService;
@@ -52,7 +53,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/**")
+                .antMatchers("**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
